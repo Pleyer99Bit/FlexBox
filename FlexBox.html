@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <title>
+            Site Name
+        </title>
+        <script>
+            function Homef()
+            {
+                document.getElementById("am").style.display='none'
+                document.getElementById("cm").style.display='none'
+                document.getElementById("sh").style.display='none'
+            }
+            function AboutMe()
+            {
+                document.getElementById("am").style.display='block'
+                document.getElementById("cm").style.display='none'
+                document.getElementById("sh").style.display='none'
+            }
+            function ContactMe()
+            {
+                document.getElementById("am").style.display='none'
+                document.getElementById("cm").style.display='block'
+                document.getElementById("sh").style.display='none'
+            }
+            function Shop()
+            {
+                document.getElementById("am").style.display='none'
+                document.getElementById("cm").style.display='none'
+                document.getElementById("sh").style.display='block'
+
+            }
+            const openWindowButtons = document.querySelectorALL('[data-window-target]')
+            const closeWindowButtons = document.querySelectorALL('[data-window-close]')
+            const overlay = document.getElementById('overlay')
+
+            openWindowButtons.array.forEach(element => {
+                button.addEventList('click', () => {
+                    const modal = document.querySelector(button.dataset.windowTarget)
+                    openModal(modal)
+                })
+            });
+            
+            openWindowButtons.array.forEach(element => {
+                button.addEventList('click', () => {
+                    const modal = button.closest('.login_window')
+                    closeModal(modal)
+                })
+            });
+
+            function openModal(modal)
+            {
+                if (modal == null) return
+                modal.classList.add('active')
+                overlay.classList.add('active')
+            }
+            function closeModal(modal)
+            {
+                if (modal == null) return
+                modal.classList.remove('active')
+                overlay.classList.remove('active')
+            }
+        </script>
+        <style>
+            html, body 
+            {
+                font-size: 18px;
+                font-family: 'Helvetica';
+                background-color: #141918;
+                color: #435550d7;
+            }
+            ::-webkit-scrollbar 
+            {
+                width: 0;
+            }
+            ::-webkit-scrollbar-track 
+            {
+                box-shadow: inset 0 0 6px #141918; 
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb 
+            {
+                background: tomato;
+                border-radius: 50px;
+                box-shadow: inset 0 0 6px #141918; 
+            }
+            .menu_vision
+            {
+                width: 100%;
+                margin-left: 15%;
+                display: flex;
+                flex-direction: row;
+                max-width: max-content;
+                max-height: max-content;
+            }
+            .menu
+            {
+                margin-top: 300px;
+                padding-right: 15px;
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                flex-flow: column wrap;
+                height: min-content;
+            }
+            .vision
+            {
+                border-radius: 50px 50px 50px 50px;
+                background: whitesmoke;
+                margin-top: 15%;
+                width: 600px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+            }
+            .vision_title
+            {
+                font-size: 25px;
+                width: 100%;
+                text-align: center;
+                font-weight: 900;
+                padding-bottom: 5px;
+                border-bottom: 2px solid #141918;
+            }
+            .vision_write
+            {
+                width: 100%;
+                margin-top: 5px;
+                margin-bottom: 7px;
+            }
+            .title_main
+            {
+                cursor: pointer;
+                color: tomato;
+                flex: 2 2 auto;
+                text-align: left;
+                font-size: 27px;
+                font-weight: 1000;                
+            }
+            .button_title
+            {
+                color: tomato;
+                font-family: 'Helvetica';
+                background-color: transparent;
+                border: none;
+                font-size: 27px;
+                font-weight: 1000;
+                cursor: pointer;
+                text-align: left;
+            }
+            .page_container
+            {
+                margin-top: 10px;
+                margin-left: 5px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: left;
+                flex-direction: column;
+                flex-flow: column wrap;
+            }
+            .page_name
+            {
+                margin-top: 3px;
+                flex: 2 2 auto;
+                text-align: left;
+                cursor: pointer;
+                max-width: max-content;
+            }
+            .credits
+            {
+                background-color: transparent;
+                color: black;
+                font-size: 10px;
+                font-family: 'Helvetica';
+                cursor: default;
+            }
+            .login
+            {
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 2;
+                flex-wrap: nowrap;
+                flex-grow: 2;
+                background-color: transparent;
+                position: absolute;
+                right: 20;
+                top: 10;
+            }
+            .login_window
+            {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                transition: 200ms ease-in-out;
+                border: 1px solid black;
+                border-radius: 10px;
+                z-index: 10;
+                background-color: #141918;
+                width: 500px;
+                max-width: 80%;
+            }
+            .login_window.active
+            {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .login_header
+            {
+                padding: 10px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid black;
+            }
+            .login_header .login_title
+            {
+                font-size: 1.25rem;
+                font-weight: bold;
+            }
+            .login_header .close_button
+            {
+                cursor: pointer;
+                border: none;
+                background: none;
+                outline: none;
+                font-size: 1.25rem;
+                font-weight: bold;
+            }
+            .login_body
+            {
+                padding: 10px 15px;
+            }
+            #overlay
+            {
+                position: fixed;
+                opacity: 0;
+                transition: 200ms ease-in-out;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color:  rgb(0, 0, 0 .5);
+                pointer-events: none;
+            }
+            #overlay.active
+            {
+                pointer-events: all;
+                opacity: 1;
+            }
+            a
+            {
+                font-size: 18px;
+                font-family: 'Helvetica';
+                text-decoration: none;
+                font-style: none;
+                color: #435550d7;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menu_vision">
+            <div class="menu">
+                <div class="title_main" id="home">
+                    <a onclick="Homef()" class="button_title">Site of Someone</a>
+                </div>
+                <div class="page_container">
+                    <div class="page_name" id="AM">
+                        <a onclick="AboutMe()">About me</a>
+                    </div>
+                    <div class="page_name" id="CM">
+                       <a onclick="ContactMe()">Contact me</a>
+                    </div>
+                    <div class="page_name" id="SH">
+                        <a onclick="Shop()">Shop</a>
+                    </div>
+                    <div class="credits">
+                        All credits reserved Michele Zaffanello
+                    </div>
+                </div>
+            </div>
+            <div class="vision" id="am" style="display: none;">
+                <div class="vision_title" align-text="center"><br>
+                    About me
+                </div>
+                <div class="vision_write"><br>
+                    Lorem ipsum dolor sit amet <b>consectetur</b> adipisicing elit. Fuga beatae in dolores maxime labore perferendis, <b>enim</b> aperiam quaerat? <i>Eveniet, temporibus</i>! Asperiores aliquam iusto delectus blanditiis, veniam ullam incidunt itaque. Eum sit quasi eaque labore rerum natus. <b>Corrupti</b>, enim! A mollitia blanditiis amet aut nostrum perferendis ducimus culpa esse facere eveniet.
+                </div>
+            </div>
+            <div class="vision" id="cm" style="display: none;">
+                <div class="vision_title" align-text="center"><br>
+                    Contact Me
+                </div>
+                <div class="vision_write"><br>
+                    Lorem ipsum dolor sit amet <b>consectetur</b> adipisicing elit. Fuga beatae in dolores maxime labore perferendis, <b>enim</b> aperiam quaerat? <i>Eveniet, temporibus</i>! Asperiores aliquam iusto delectus blanditiis, veniam ullam incidunt itaque. Eum sit quasi eaque labore rerum natus. <b>Corrupti</b>, enim! A mollitia blanditiis amet aut nostrum perferendis ducimus culpa esse facere eveniet.
+                </div>
+            </div>
+            <div class="vision" id="sh" style="display: none;">
+                <div class="vision_title" align-text="center"><br>
+                    Shop
+                </div>
+                <div class="vision_write"><br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas facilis quis voluptatibus tempore? Voluptatibus deleniti laboriosam vero, hic officiis enim? Asperiores et vel distinctio modi eum alias reprehenderit esse repellat quia molestiae. Ex ducimus natus quis illum quae neque inventore minima fugiat atque dolorem eaque recusandae numquam earum delectus molestias quidem harum, laudantium maiores blanditiis minus totam provident? In ut hic pariatur voluptatibus fugit excepturi cupiditate nemo ab. Atque, neque expedita id incidunt, suscipit accusamus illo blanditiis sint iure magni ipsa! Aut quasi, quia pariatur totam voluptate eaque aliquid quis ad modi reiciendis. Adipisci a quas nesciunt illo libero!
+                </div>
+            </div>
+        </div>
+        <div class="login">
+            <a data-window-target="#LW"><img src="Login_img.png" width="40px" height="35px"></a>
+        </div>
+        <div class="login_window" id="LW">
+            <div class="login_header">
+                <div class="login_title">
+                    Login
+                </div>
+                <button data-close-button class="close_button">
+                    &times;
+                </button>
+            </div>
+            <div class="login_body">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt temporibus nam numquam, quis voluptatem illum omnis aliquam vel eaque libero?
+            </div>
+        </div>
+        <div id="overlay">
+        </div>
+    </body>
+</html>
